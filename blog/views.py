@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .models import PostModel
+from .models import PostModel, Like
 from .forms import PostFrom
 
 # Create your views here.
@@ -28,4 +28,15 @@ def posts_view(request):
         'posts' : posts,
         'form' : form,
     })
-            
+
+@login_required
+def like(request, pk):
+    post = get_object_or_404(PostModel, pk=pk)
+    like_qs = Like.objects.filter(author=request.user, post=post)
+
+    if like_qs.exists():
+        like_qs[0].delete()
+    else:
+        Like.objects.create(author=request.user, post=post)
+
+    return redirect('blog:posts')

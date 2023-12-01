@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 from django.contrib.auth.models import User
 
@@ -16,3 +17,16 @@ class PostModel(models.Model):
     
     def __str__(self):
         return self.author.username
+    
+    @property
+    def get_like_count(self):
+        return self.like_set.all().count()
+        
+
+class Like(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(PostModel, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.author.username
+    
