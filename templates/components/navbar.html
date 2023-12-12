@@ -4,7 +4,11 @@
     <nav  class="mx-auto flex max-w-6xl gap-8 px-6 transition-all duration-200 ease-in-out lg:px-12 py-4">
         <div class="relative flex items-center">
             <a href="{% url 'blog:posts' %}">
-                <img  src="https://www.svgrepo.com/show/499831/target.svg" loading="lazy" style="color:transparent" width="32" height="32"></a>
+                <img  src="https://www.svgrepo.com/show/499831/target.svg" loading="lazy" style="color:transparent" width="32" height="32">
+            </a>
+            {% if request.user.is_authenticated %}
+                <p class="ml-2"> @{{ request.user.username }} </p>
+            {% endif %}
         </div>
         
 {% comment %}         <ul class="hidden items-center justify-center gap-6 md:flex">

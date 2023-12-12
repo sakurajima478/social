@@ -12,6 +12,12 @@ from .forms import PostFrom
 def posts_view(request):
     posts = PostModel.objects.all()
     form = PostFrom(request.POST or None, request.FILES)
+        
+    likes = Like.objects.filter(author=request.user)
+    
+     # Agregar información de likes a cada post
+    for post in posts:
+        post.user_like = likes.filter(post=post).first()
     
     if request.method == "POST":
         if form.is_valid():
