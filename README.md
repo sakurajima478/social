@@ -1,6 +1,5 @@
 #  Proyecto Práctico "News"
 ***
-¡Se basa en un proyecto con Django, el cual trata de una red social super basica , la cual puedes crear tu propia cuenta , subir tu comentario, ya sea un texto , o un texto con una imagen,
-en a cual , podras dar corazon a las diferentes comntaios que te agraden, le implementare nuevasfunciones pronto :)!
+¡Se basa en un proyecto con Django, el cual trata de una red social superbásica, la cual puedes crear tu propia cuenta, subir tu comentario, ya sea un texto, o un texto con una imagen, en  cuál , podrás dar corazón a los diferentes comentarios que te agraden, le implementaré nuevas funciones pronto :)!
 
-[I'm an inline-style link](https://sakurajima.pythonanywhere.com/)
+[visualización del proyecto con pythonanywhere ](https://sakurajima.pythonanywhere.com/)
